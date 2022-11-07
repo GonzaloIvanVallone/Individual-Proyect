@@ -1,0 +1,18 @@
+.form{
+    display: inline-block;
+    margin-top:15px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.back{
+    background-image: url("https://recipesfromapantry.com/wp-content/uploads/2017/11/Ingredients-for-tomato-rice-36-min-1024x683.jpg");
+    background-size:cover;
+    background-repeat:no-repeat;
+    min-height: 100vh
+}
+
+.button{
+    margin-top:50px;
+    margin-bottom:174px;
+}

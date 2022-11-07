@@ -1,0 +1,13 @@
+.card{
+    margin: 20px;
+    height: 160px;
+    width: 160px;
+}
+.container{
+    margin: 2%;
+    color: white;
+    background-color: rgb(53, 53, 53);
+    border-radius: 5px;
+    box-shadow: 6px 10px black;
+    width: 300px;
+}

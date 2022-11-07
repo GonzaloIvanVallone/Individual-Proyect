@@ -1,0 +1,25 @@
+.img{
+    height: auto; 
+    width: auto; 
+    max-width: 100%;
+    min-height: 100vh
+   
+}
+.add{
+    background-color: black;
+  
+}
+  
+.HomeButton {
+    transition-duration: 1.0s;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: 70;
+    font-size: 40px;
+}
+  
+.HomeButton:hover {
+    background-color: black;
+    color: white;
+}

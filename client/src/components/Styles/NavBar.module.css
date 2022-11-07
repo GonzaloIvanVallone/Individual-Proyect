@@ -1,0 +1,11 @@
+.navbar {
+    background-color: goldenrod;
+    color: black;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+    font-weight: bold;
+    text-decoration: none;
+}

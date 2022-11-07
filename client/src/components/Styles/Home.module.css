@@ -1,0 +1,20 @@
+.filtros{
+    background-color: black;
+}
+
+.paginado{
+    background-color: black;
+    border-bottom-width: 3px;
+    border-bottom-style:solid;
+    border-bottom-color: black;
+}
+.back{
+    background-color: #92a8d1;
+    min-height: 100vh
+}
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}

@@ -1,0 +1,14 @@
+.background{
+    background-color: #92a8d1;
+    min-height: 100vh;
+}
+.container{
+    margin: 2%;
+    color: white;
+    background-color: rgb(53, 53, 53);
+    border-radius: 5px;
+    box-shadow: 6px 10px black;
+}
+.imagen{
+    margin-top: 2%;
+}
