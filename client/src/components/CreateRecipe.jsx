@@ -89,16 +89,14 @@ export default function CreateRecipe(){
     }
     
     const handleSelect = (e) => {
-        if(e.target.value !== "Select diet"){
-            if(!recipeData.diets.includes(e.target.value)){
-                setRecipeData({
-                    ...recipeData,
-                    diets: [...recipeData.diets, e.target.value],
-                });
-            }else{
-                console.log(recipeData.diets)
-            }   
-        }
+        if(!recipeData.diets.includes(e.target.value)){
+            setRecipeData({
+                ...recipeData,
+                diets: [...recipeData.diets, e.target.value],
+            });
+        }else{
+            console.log(recipeData.diets)
+        }   
     };
 
     function handleChange(e){
@@ -115,17 +113,19 @@ export default function CreateRecipe(){
             </div>
             <div>
                 <form  onSubmit={handleSubmit}>
-                    <div>Title: <input className={style.form} type='text' name='title' value={recipeData.title} onChange={handleChange} id="back"/></div>
-                    <div>Diets: <select>{allDiets?.map((t, i) => {
-                        return <option  onClick={(e) => handleSelect(e)} value={t} key={i}>{t}</option>;
-                        }
-                    )}</select></div>
-                    <div>Selected diets: {recipeData.diets.join(" ")} </div>
-                    <div>Summary: <input className={style.form} type='text' name='summary' value={recipeData.summary} onChange={(e)=>handleChange(e)}/></div>
-                    <div>HealthScore: <input className={style.form} type='number' name='healthScore' value={recipeData.healthScore} onChange={(e)=>handleChange(e)}/></div>
-                    <div>Instructions: <input className={style.form} type='text' name='instructions' value={recipeData.instructions} onChange={(e)=>handleChange(e)}/></div>
-                    <div>Image: <input className={style.form} type="text" name='image' value={recipeData.image} onChange={(e)=>handleChange(e)}/></div>
-                    <button type='submit'className={style.button}>Create Recipe</button>
+                    <div className={style.hoja}>
+                        <div><h3>Title: <input className={style.form} type='text' name='title' value={recipeData.title} onChange={handleChange} id="back"/></h3></div>
+                        <div><h3 className={style.line}>Diets:</h3> <select>{allDiets?.map((t, i) => {
+                            return <option  onClick={(e) => handleSelect(e)} value={t} key={i}>{t}</option>;
+                            }
+                        )}</select></div>
+                        <div className={style.select}><h3>Selected diets: {recipeData.diets.join(" ")} </h3></div>
+                        <div><h3>Summary:</h3></div> <textarea name="summary" rows="7" cols="40" className={style.form} value={recipeData.summary}  onChange={(e)=>handleChange(e)}> </textarea>
+                        <div><h3>HealthScore: <input className={style.form} type='number' name='healthScore' value={recipeData.healthScore} onChange={(e)=>handleChange(e)}/></h3></div>
+                        <div><h3>Instructions:</h3></div> <textarea name="instructions" rows="7" cols="40"   className={style.form} value={recipeData.instructions}  onChange={(e)=>handleChange(e)}> </textarea>
+                        <div><h3>Image: <input className={style.form} type="text" name='image' value={recipeData.image} onChange={(e)=>handleChange(e)}/></h3></div>
+                        <button type='submit'className={style.button}>Create Recipe</button>
+                    </div>
                 </form>
             </div>
         </div>

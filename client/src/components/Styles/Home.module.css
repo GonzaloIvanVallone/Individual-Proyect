@@ -1,5 +1,6 @@
 .filtros{
     background-color: black;
+    color:white;
 }
 
 .paginado{
@@ -11,10 +12,4 @@
 .back{
     background-color: #92a8d1;
     min-height: 100vh
-}
-.cardContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-
 }

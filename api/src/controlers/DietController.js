@@ -17,6 +17,14 @@ const storeAllDiets = async () => {
   try{
     let diets = [
       {
+        id: -1,
+        name: "all",
+      },
+      {
+        id: 0,
+        name: "dairy free",
+      },
+      {
         id: 1,
         name: "gluten free",
       },
@@ -61,7 +69,6 @@ const storeAllDiets = async () => {
         name: "whole 30",
       },
     ];
-    console.log(diets)
     await Diet.bulkCreate(diets);
     console.log('Diets correctly stored into the DB');
   }catch{

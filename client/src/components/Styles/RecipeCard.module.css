@@ -4,10 +4,11 @@
     width: 160px;
 }
 .container{
-    margin: 2%;
-    color: white;
-    background-color: rgb(53, 53, 53);
+    margin-left: 40%;
+    color: black;
+    background-color: bisque;
     border-radius: 5px;
     box-shadow: 6px 10px black;
     width: 300px;
+    
 }

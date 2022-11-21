@@ -20,7 +20,7 @@ export default function Home(){
     const lastRecipe = currentPage * RecipesPerPage
     const firstRecipe = lastRecipe - RecipesPerPage
     const renderThis = allRecipes.slice(firstRecipe, lastRecipe)
-    console.log("a renderizar: ", allRecipes)
+    //console.log("a renderizar: ", allRecipes)
 
     const paginated = (page)=> {
         setCurrentPage(page)
@@ -48,6 +48,7 @@ export default function Home(){
         dispatch(orderByHealthScore(e.target.value));
         setOrder(`Ordenado ${e.target.value}`);
     }
+   
 
     return (
         <div className={style.back}>
@@ -58,16 +59,18 @@ export default function Home(){
                 </section>  
             </div>
             <div className={style.filtros}>
+                Alphabetical Order: 
                 <select>
-                    <option value="ignore">Alphabetical Order</option>
                     <option value="asc" onClick={(e) => handleOrderAlpha(e)}>Ascendent Order</option>
                     <option value="desc" onClick={(e) => handleOrderAlpha(e)}>Descendent Order</option>
                 </select>
+                
+                Order By Score: 
                 <select>
-                    <option value="ignore">Order By Score</option>
                     <option value="high" onClick={(e) => handleOrderByScore(e)}>Higher Score</option>
                     <option value="low" onClick={(e) => handleOrderByScore(e)}>Lower Score</option>
                 </select>
+                Filter by diet type: 
                 <select>{
                     allDiets?.map((f) => {return <option value={f} onClick={(e) => handleFilterType(e)}>{f}</option>;})}
                 </select>
@@ -76,7 +79,7 @@ export default function Home(){
                 <Paginate RecipesPerPage={RecipesPerPage} allRecipes={allRecipes.length} paginated={paginated}/>
             </div>
             <div className={style.cardContainer}>
-                Recipes:
+                <h1>Recipes:</h1>
             {
                 
                 renderThis?.map((e)=>{

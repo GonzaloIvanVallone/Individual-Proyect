@@ -23,18 +23,22 @@ const rootReducer = (state = initialState, action) => {
         case GET_DIET_TYPES: return{...state, diets: action.payload}
         case FILTER_BY_DIET_TYPE:
             console.log("filtro: " + action.payload);
-            const recipes = state.recipes;
-            const filter = recipes.filter((e) =>{
-                const aux = e.diet.map((f) =>{
-                    return f.name
-                });
-                return aux.includes(action.payload) === true
-            })  
-            return{...state, allRecipes: filter}
+            if(action.payload === "all"){
+                return{...state, allRecipes: state.recipes}
+            }else{
+                const recipes = state.recipes;
+                const filter = recipes.filter((e) =>{
+                    const aux = e.diets.map((f) =>{
+                        return f.name
+                    });
+                    return aux.includes(action.payload) === true
+                })
+                return{...state, allRecipes: filter}
+            }
         case ORDER_BY: 
             if(action.payload === "ignore"){
                 return state;
-            }//ver si sigue haciendo falta
+            }
             console.log("filtro: " + action.payload);
             const sorted = action.payload === "asc" ?
             state.allRecipes.sort(function (a, b){
@@ -62,7 +66,7 @@ const rootReducer = (state = initialState, action) => {
             }
             console.log("filtro: " + action.payload);
             const sortedScore = action.payload === "high" ?
-                state.allRecipes.sort(function (a, b){//healthScore
+                state.allRecipes.sort(function (a, b){
                     if(a.healthScore > b.healthScore){
                         return -1;
                     }

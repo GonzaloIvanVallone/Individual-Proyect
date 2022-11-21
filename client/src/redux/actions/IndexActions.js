@@ -9,17 +9,6 @@ export const GET_BY_NAME = "GET_BY_NAME";
 
 const recipe_route = 'http://localhost:3001/recipe';
 
-/*export function getAllRecipes(){
-    return async function(dispatch){
-        try{
-            let json = await axios.get(recipe_route);
-            return dispatch({type: GET_ALL, payload: json.data});
-        }catch(error){
-            alert(error.response.data.msg)
-        }
-    }
-}*/
-
 export function getRecipesByName(name){
     return async function(dispatch){
         try{

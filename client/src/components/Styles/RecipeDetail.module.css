@@ -1,14 +1,17 @@
 .background{
     background-color: #92a8d1;
     min-height: 100vh;
+    
 }
 .container{
     margin: 2%;
-    color: white;
-    background-color: rgb(53, 53, 53);
+    color: black;
+    background-color: bisque;
     border-radius: 5px;
     box-shadow: 6px 10px black;
 }
 .imagen{
     margin-top: 2%;
+    height: 160px;
+    width: 160px;
 }
