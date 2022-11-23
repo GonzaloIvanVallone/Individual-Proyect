@@ -18,7 +18,7 @@ const getBdInfo = async(name) =>{
     return arr
 }
 
-const antiCrash = async (id) =>{//maybe unnecessary
+const getApiInfo = async (id) =>{//maybe unnecessary
     try{
         const apiResponse = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
         const apiInfo = {
@@ -37,7 +37,7 @@ const antiCrash = async (id) =>{//maybe unnecessary
     }
 }
 
-const antiCrash2 = async (name)=>{
+const antiCrash = async (name)=>{
     try{
         const apiResponse = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&query=${name}&number=90`);
         const apiInfo = await apiResponse.data.results.map(e => {
@@ -65,7 +65,7 @@ const getRecipes =  async (req, res, _next) => {
     try{
         if(recipesToSearch){
             recipesToSearch = recipesToSearch.toLowerCase();
-            const apiInfo = await antiCrash2(recipesToSearch);
+            const apiInfo = await antiCrash(recipesToSearch);
             const bdInfo = await getBdInfo(recipesToSearch);
             if(apiInfo.length > 0 && bdInfo.length > 0){
                 let totalInfo = apiInfo.concat(bdInfo);
@@ -97,7 +97,7 @@ const getById =  async (req, res, _next) => {
                     res.status(200).json(bdInfo);
                 }
             }else{
-                const apiResponse = await antiCrash(id);
+                const apiResponse = await getApiInfo(id);
                 if(apiResponse){
                     res.status(200).json(apiResponse)
                 }else{

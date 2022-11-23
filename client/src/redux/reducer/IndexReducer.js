@@ -36,9 +36,6 @@ const rootReducer = (state = initialState, action) => {
                 return{...state, allRecipes: filter}
             }
         case ORDER_BY: 
-            if(action.payload === "ignore"){
-                return state;
-            }
             console.log("filtro: " + action.payload);
             const sorted = action.payload === "asc" ?
             state.allRecipes.sort(function (a, b){
@@ -60,10 +57,7 @@ const rootReducer = (state = initialState, action) => {
                 return 0;
             })
             return{...state, allRecipes: sorted}
-        case ORDER_BY_HEALTH_SCORE: 
-            if(action.payload === "ignore"){
-                return state;
-            }
+        case ORDER_BY_HEALTH_SCORE:
             console.log("filtro: " + action.payload);
             const sortedScore = action.payload === "high" ?
                 state.allRecipes.sort(function (a, b){
