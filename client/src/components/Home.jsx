@@ -85,7 +85,7 @@ export default function Home(){
                 renderThis?.map((e)=>{
                     return(
                         <Link  to={`/details/${e.id}`}>
-                            <RecipeCard img={e.image} title={e.title} diets={e.diets.map(f => f.name)} key={e.id}/>
+                            <RecipeCard img={e.image} title={e.title} diets={e.diets.map(f => f.name)}  healthScore={e.healthScore} key={e.id}/>
                         </Link>
                     )
                 })

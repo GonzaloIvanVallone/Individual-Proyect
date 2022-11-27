@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 <Link to='/home'>Return</Link>
 
 
-export default function RecipeCard({img, title, diets }){
+export default function RecipeCard({img, title, diets, healthScore }){
     return(
          <div className={style.container}>
             <img src={img} alt="img not found" className={style.card}/>
@@ -13,6 +13,7 @@ export default function RecipeCard({img, title, diets }){
             {diets[0] ? <p>Diets: {diets.join(", ")}</p>
               : <p>Diets: None </p>
             }
+            HealthScore:<h3>{healthScore}</h3>
         </div>
     )
 }
