@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { postRecipe } from  '../redux/actions/IndexActions'
 import style from './Styles/CreateRecipe.module.css'
 import { getDietTypes } from '../redux/actions/IndexActions';
-
+import Swal from "sweetalert2";
 
 
 export default function CreateRecipe(){
@@ -82,9 +82,17 @@ export default function CreateRecipe(){
                 instructions: "",
                 diets: [],
             })
-            alert("Recipe created");
+            Swal.fire({
+                title: "Recipe created",
+                icon: "success",
+                confirmButtonText: "Continue",
+            });
         }else{
-            alert(`the following fields are not valid:  ${isValidated.join('\n')}`)
+            Swal.fire({
+                title: `the following fields are not valid:  ${isValidated.join('\n')}`,
+                icon: "error",
+                confirmButtonText: "Continue",
+            });
         }
     }
     
@@ -95,7 +103,11 @@ export default function CreateRecipe(){
                 diets: [...recipeData.diets, e.target.value],
             });
         }else{
-            console.log(recipeData.diets)
+            Swal.fire({
+                title: `Recipe already added`,
+                icon: "error",
+                confirmButtonText: "Continue",
+            });
         }   
     };
 

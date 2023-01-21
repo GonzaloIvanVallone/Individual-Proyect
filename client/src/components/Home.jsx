@@ -20,7 +20,6 @@ export default function Home(){
     const lastRecipe = currentPage * RecipesPerPage
     const firstRecipe = lastRecipe - RecipesPerPage
     const renderThis = allRecipes.slice(firstRecipe, lastRecipe)
-    //console.log("a renderizar: ", allRecipes)
 
     const paginated = (page)=> {
         setCurrentPage(page)

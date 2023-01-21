@@ -1,5 +1,4 @@
 const { Diet } = require('../db');
-//const axios = require('axios');
 
 const getAllDiets =  async (_req, res, _next) => {
   try{

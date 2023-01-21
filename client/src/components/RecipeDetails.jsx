@@ -9,17 +9,13 @@ import { Link } from 'react-router-dom'
 export default function RecipeDetails(props) {
     const dispatch = useDispatch();
     const id = props.match.params.id;
-    //console.log("el id a buscar detalle es: ", id)
-    
 
     useEffect(() => {
-        //console.log("intentando despachar")
         dispatch(getRecipeDetails(id))
     },[dispatch, id])
 
     const recipe = useSelector((state) => state.recipeDetails);
-    //console.log("A nuestro componente detalle, desde store llega la info asi: ",recipe)
-    
+
     return (
         <div className={style.background}>
             <Link to='/home'>Return</Link><br />

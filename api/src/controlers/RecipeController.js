@@ -3,7 +3,6 @@ const { Op } = require("sequelize");
 const axios = require('axios');
 const { API_KEY } = process.env;
 
-//---------------------------------------------------------------------------------------------------------------------
 
 const getBdInfo = async(name) =>{
     let arr = await Recipe.findAll({ 
@@ -18,7 +17,7 @@ const getBdInfo = async(name) =>{
     return arr
 }
 
-const getApiInfo = async (id) =>{//maybe unnecessary
+const getApiInfo = async (id) =>{
     try{
         const apiResponse = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
         const apiInfo = {
@@ -58,7 +57,6 @@ const antiCrash = async (name)=>{
     }
 }
 
-//----------------------------------------------------------------------------------------------------------------------
 
 const getRecipes =  async (req, res, _next) => {
     let recipesToSearch = req.query.name;
@@ -85,7 +83,6 @@ const getRecipes =  async (req, res, _next) => {
     }
 }
 
-//---------------------------------------------------------------------------------------------------------------------------------
 
 const getById =  async (req, res, _next) => {
     try{
@@ -112,7 +109,6 @@ const getById =  async (req, res, _next) => {
     }
 }
 
-//---------------------------------------------------------------------------------------------------------------------------------
 
 const postRecipe =  async (req, res, _next) => {
     try{
@@ -135,7 +131,7 @@ const postRecipe =  async (req, res, _next) => {
                     ...newRecipe,
                 }
             });
-            if(created === true){//newly created 
+            if(created === true){
                 let dietsDB = await Diet.findAll({
                     where: { name: diets}
                 });

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getRecipesByName } from "../redux/actions/IndexActions";
 import style from './Styles/SearchBar.module.css';
+import Swal from "sweetalert2";
 
 export default function SearchBar(){
     const dispatch = useDispatch();
@@ -21,7 +22,11 @@ export default function SearchBar(){
             inputs.forEach((input) => (input.value = ""));
             setName("");
         }else{
-            alert("Name required before submit")
+            Swal.fire({
+                title: "Name required before submit",
+                icon: "error",
+                confirmButtonText: "Continue",
+            });
         }
     }
 
